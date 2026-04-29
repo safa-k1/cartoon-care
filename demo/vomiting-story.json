@@ -1,0 +1,17 @@
+{
+    "condition": "vomiting",
+    "pages": [
+      {
+        "text": "Alex feels sick to their stomach.",
+        "imageFile": "assets/vomiting/p1v.png"
+      },
+      {
+        "text": "Sometimes your body vomits to get rid of germs.",
+        "imageFile": "assets/vomiting/p2v.png"
+      },
+      {
+        "text": "Drinking water slowly and resting helps you feel better.",
+        "imageFile": "assets/vomiting/p3v.png"
+      }
+    ]
+  }
