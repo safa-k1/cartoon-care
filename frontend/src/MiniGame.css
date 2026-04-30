@@ -1,0 +1,460 @@
+/* ══════════════════════════════════════════════════════════
+   MINI GAME — enhanced with eyes-closed mode + audio
+══════════════════════════════════════════════════════════ */
+
+/* ── Base container ── */
+.minigame {
+  background: linear-gradient(135deg, var(--lavender) 0%, var(--sky) 100%);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  margin-top: 8px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.minigame--eyes-closed {
+  background: linear-gradient(135deg, #1a1035 0%, #0f2a4a 100%);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.35);
+}
+
+.minigame--success-state {
+  background: linear-gradient(135deg, #ffd6e0 0%, #d4f5e9 100%);
+}
+
+/* ── Eyes-closed intro screen ── */
+.eyes-intro {
+  background: linear-gradient(135deg, #1a1035 0%, #0f2a4a 100%);
+  border-radius: var(--radius-lg);
+  padding: 28px 20px;
+  margin-top: 8px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.3);
+}
+
+.eyes-bears {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.eyes-bear-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.6));
+}
+
+.eyes-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(232, 121, 160, 0.6);
+}
+
+.eyes-desc {
+  font-size: 0.92rem;
+  color: #c4b5fd;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.eyes-desc strong {
+  color: #e879a0;
+}
+
+.eyes-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.eyes-btn {
+  font-family: var(--font-display);
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.eyes-btn--main {
+  background: linear-gradient(135deg, #e879a0, #a855f7);
+  color: #fff;
+  font-size: 1rem;
+  padding: 14px 28px;
+  width: 100%;
+  max-width: 280px;
+  box-shadow: 0 4px 20px rgba(232, 121, 160, 0.4);
+}
+
+.eyes-btn--main:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 24px rgba(232, 121, 160, 0.55);
+}
+
+.eyes-btn--skip {
+  background: transparent;
+  color: #a78bfa;
+  font-size: 0.85rem;
+  padding: 8px 20px;
+  border: 2px solid rgba(167, 139, 250, 0.4);
+}
+
+.eyes-btn--skip:hover {
+  background: rgba(167, 139, 250, 0.1);
+}
+
+/* Countdown */
+.eyes-countdown-wrap {
+  padding: 20px 0;
+}
+
+.eyes-countdown-label {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.eyes-counting {
+  font-size: 0.95rem;
+  color: #c4b5fd;
+  font-weight: 600;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ── Game header ── */
+.mg-header {
+  margin-bottom: 12px;
+}
+
+.mg-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mg-emoji {
+  font-size: 1.6rem;
+}
+
+.minigame-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.minigame--eyes-closed .minigame-title {
+  color: #fff;
+}
+
+.mg-eyes-mode-badge {
+  display: inline-block;
+  background: rgba(168, 85, 247, 0.2);
+  border: 1.5px solid rgba(168, 85, 247, 0.4);
+  color: #c4b5fd;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  margin-top: 6px;
+}
+
+/* ── Progress bar ── */
+.mg-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.mg-progress-bar {
+  flex: 1;
+  height: 10px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.mg-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #3b82f6);
+  border-radius: 99px;
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.minigame--eyes-closed .mg-progress-bar {
+  background: rgba(255,255,255,0.1);
+}
+
+.mg-progress-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+.minigame--eyes-closed .mg-progress-label {
+  color: #a78bfa;
+}
+
+/* ── Hint ── */
+.minigame-hint {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.minigame--eyes-closed .minigame-hint {
+  color: #c4b5fd;
+}
+
+/* ── Read Again button ── */
+.mg-read-again-btn {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  background: rgba(168, 85, 247, 0.2);
+  color: #e879a0;
+  border: 2px solid rgba(232, 121, 160, 0.4);
+  border-radius: var(--radius-full);
+  padding: 8px 18px;
+  cursor: pointer;
+  margin-bottom: 14px;
+  transition: var(--transition);
+}
+
+.mg-read-again-btn:hover:not(:disabled) {
+  background: rgba(168, 85, 247, 0.3);
+  transform: scale(1.03);
+}
+
+.mg-read-again-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* ── Step buttons ── */
+.minigame-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.minigame-btn {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  background: var(--white);
+  border: 2.5px solid var(--sky-mid);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.minigame--eyes-closed .minigame-btn {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(167, 139, 250, 0.3);
+  color: #e2d9f3;
+}
+
+.minigame-btn:hover:not(:disabled) {
+  transform: translateX(4px);
+  border-color: var(--blue);
+  background: var(--sky);
+}
+
+.minigame--eyes-closed .minigame-btn:hover:not(:disabled) {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: #a855f7;
+}
+
+.minigame-btn:disabled {
+  cursor: default;
+}
+
+.minigame-btn--reading {
+  border-color: #a855f7 !important;
+  background: rgba(168, 85, 247, 0.12) !important;
+  color: #a855f7 !important;
+  animation: reading-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes reading-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(168, 85, 247, 0); }
+}
+
+.minigame-btn--correct {
+  background: var(--mint) !important;
+  border-color: var(--green) !important;
+  color: var(--green-dark) !important;
+}
+
+.minigame-btn--wrong {
+  background: #fff5f5 !important;
+  border-color: #fc8181 !important;
+  color: #c53030 !important;
+}
+
+.minigame--eyes-closed .minigame-btn--correct {
+  background: rgba(16, 185, 129, 0.2) !important;
+  border-color: #10b981 !important;
+  color: #6ee7b7 !important;
+}
+
+.minigame--eyes-closed .minigame-btn--wrong {
+  background: rgba(252, 129, 129, 0.1) !important;
+  border-color: #fc8181 !important;
+  color: #fc8181 !important;
+}
+
+.mg-btn-num {
+  font-size: 0.75rem;
+  font-weight: 900;
+  background: rgba(0,0,0,0.08);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.minigame--eyes-closed .mg-btn-num {
+  background: rgba(255,255,255,0.1);
+  color: #c4b5fd;
+}
+
+.mg-btn-text {
+  flex: 1;
+}
+
+/* ── Success screen ── */
+.mg-success-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.mg-success-bear {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  animation: float 2s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(232, 121, 160, 0.4));
+}
+
+.mg-trophy {
+  font-size: 3rem;
+  animation: float 2.3s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.mg-success-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.mg-stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+
+.mg-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 12px;
+  padding: 8px 14px;
+}
+
+.mg-stat-num {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #3b82f6;
+}
+
+.mg-stat-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mg-perfect-badge {
+  background: linear-gradient(135deg, #fbbf24, #f97316);
+  color: white;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  border-radius: var(--radius-full);
+  padding: 6px 16px;
+  display: inline-block;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 12px rgba(249, 115, 22, 0.35);
+}
+
+.mg-eyes-badge {
+  background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(59,130,246,0.15));
+  border: 1.5px solid rgba(168,85,247,0.3);
+  color: #7c3aed;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  margin-bottom: 12px;
+}
+
+/* ── Reset button ── */
+.minigame-reset {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--blue-dark);
+  background: var(--white);
+  border: 2px solid var(--sky-mid);
+  border-radius: var(--radius-full);
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 4px;
+}
+
+.minigame-reset:hover {
+  background: var(--sky);
+  transform: scale(1.04);
+}
