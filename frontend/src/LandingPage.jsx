@@ -324,7 +324,7 @@ export default function LandingPage({ onStart, name, setName, bearImgIndex, setB
       </div>
 
       <div className="cc-footer">
-        Made with 💙 for little heroes everywhere 🦸 — Powered by Care Bears 🌈
+        Made by Safa, Inshaal, Wareesha with care 💖
       </div>
 
       {loading && (

@@ -243,7 +243,7 @@ function StorybookPage({ story, childInfo, onGoBack, bearImgIndex }) {
           </div>
         )}
 
-        {showGame && isLast && <MiniGame condition={childInfo.condition} />}
+        {showGame && isLast && <MiniGame condition={childInfo.condition} bearImg={bearImg} />}
       </div>
     </div>
   );

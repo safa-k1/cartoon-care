@@ -78,19 +78,37 @@
         { "pageNumber": 6, "text": "Throwing up is scary and yucky — but it means your body was protecting you. Small sips, rest, and patience are what you need. You will feel completely like yourself again soon, and your body will have done an amazing job.", "imagePrompt": "A healthy cheerful boy standing outside with a big smile, fresh air and sunshine, warm hopeful colors, watercolor illustration, no text", "emotion": "hopeful" }
       ]
     },
-    {
-      "condition": "headache",
-      "title": "Mia's Quiet Cure",
-      "character": "Mia",
-      "pages": [
-        { "pageNumber": 1, "text": "Mia could read for hours without stopping. Books were her favourite thing in the whole world. But one afternoon, right in the middle of her favourite chapter, a dull heavy ache spread across her forehead. Mia had a headache.", "imagePrompt": "A girl sitting in a cosy reading nook with a book, pressing her hand gently to her forehead, soft warm lighting, watercolor illustration, no text", "emotion": "curious" },
-        { "pageNumber": 2, "text": "The more Mia tried to keep reading, the worse the headache got. The light felt too bright and the words started to blur. She closed her book and pressed both hands against her forehead. 'Why does my head hurt so much?' she wondered.", "imagePrompt": "A girl closing her book with a pained expression, squinting at bright light, sitting on a cozy chair, soft watercolor illustration, no text", "emotion": "curious" },
-        { "pageNumber": 3, "text": "Dad brought Mia a big glass of water and sat beside her. 'Headaches can happen for a few reasons,' he said. 'Sometimes it is because we have not had enough water that day. Our brain needs lots of water to work well. Staring at screens or reading in dim light can cause them too.'", "imagePrompt": "A caring dad handing a glass of water to his daughter in a cozy living room, soft gentle light, warm family scene, watercolor illustration, no text", "emotion": "calm" },
-        { "pageNumber": 4, "text": "'First, drink that whole glass of water,' said Dad. 'Then close your eyes in a quiet, dark room for a little while. If it does not get better, we can give you some children's pain medicine. And next time — no reading in the dark!'", "imagePrompt": "A girl resting in a dim quiet room with a cool cloth on her forehead, looking peaceful, soft watercolor illustration, no text", "emotion": "calm" },
-        { "pageNumber": 5, "text": "Mia drank her water, rested with a cool cloth on her forehead, and dozed off for twenty minutes. When she woke up, the headache was almost completely gone. She made a deal with herself to drink more water every single day.", "imagePrompt": "A girl waking up refreshed in her room, stretching happily, bright morning light, watercolor illustration, no text", "emotion": "happy" },
-        { "pageNumber": 6, "text": "Headaches are your brain's way of asking for a little care. Drink your water, rest your eyes, and find a quiet spot to breathe. You take such good care of the things you love — now take that same wonderful care of yourself.", "imagePrompt": "A cheerful girl sitting happily with her book and a big glass of water beside her, bright sunny reading nook, warm watercolor, no text", "emotion": "hopeful" }
-      ]
-    },
+   {
+    "condition": "headache",
+    "title": "Josh's Superhero Rest",
+    "character": "Josh",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Josh loved drawing superheroes in his cozy room more than anything. But today, his head started to ache with sharp pain waves, making it hard to focus on his art.",
+        "imagePrompt": "A boy sitting at a desk drawing superheroes, pressing his hand to his forehead in pain, cozy warm bedroom, watercolor illustration, no text",
+        "emotion": "curious"
+      },
+      {
+        "pageNumber": 2,
+        "text": "His mom came in to help, gently placing a warm compress on his forehead while he rested in bed. She stayed by his side, making sure he felt safe and comfortable while his body worked on getting better.",
+        "imagePrompt": "A mom gently placing a warm compress on her son's forehead as he rests in bed, soft cozy bedroom, loving and warm, watercolor illustration, no text",
+        "emotion": "calm"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Eating some warm soup and healthy food will help your body stay strong, his mom whispered as he took careful sips. He knew that fueling his body with good things was the best way to chase the headache away.",
+        "imagePrompt": "A boy sitting up in bed taking careful sips of warm soup, mom smiling beside him, cozy warm lighting, watercolor illustration, no text",
+        "emotion": "hopeful"
+      },
+      {
+        "pageNumber": 4,
+        "text": "After a long, quiet rest, Josh woke up feeling amazing and full of energy again. He grabbed his crayons and finished his masterpiece, showing everyone that a little rest was all he needed to feel like a hero.",
+        "imagePrompt": "A boy sitting up bright and happy at his desk finishing a superhero drawing, big smile, sunny cozy room, watercolor illustration, no text",
+        "emotion": "happy"
+      }
+    ]
+  },
     {
       "condition": "earache",
       "title": "Sam's Ears and the Music",
